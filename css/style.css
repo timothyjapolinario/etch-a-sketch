@@ -1,5 +1,15 @@
 .paper{
-    height: 300px;
-    width: 200px;
+    height: 500px;
+    width: 600px;
     border: 2px solid green;
+    display: grid;
+    gap: 0;
 }
+
+.pixel{
+    border: 1px solid #919191;
+    width: 2px;
+    height: 2px;
+    padding: 0px;
+}
+
