@@ -4,8 +4,8 @@ const paperHeight = paper.clientHeight;
 let pixelCount = 16;
 let pixelWidthHeight = paperWidth/pixelCount
 let padding = 2
-let isHoldingMouse = false;
-console.log(pixelWidthHeight);
+let isMouseDown = false;
+
 
 setNewPaperGridSize();
 
@@ -22,24 +22,33 @@ function setNewPaperGridSize(){
 
 function createPixel(){
     const div = document.createElement('div');
+    div.setAttribute('draggable', 'false')
     div.setAttribute('class', 'pixel');
     div.setAttribute('style', `height:${pixelWidthHeight-padding}px; width:${pixelWidthHeight-padding}px;`)
+
     div.addEventListener('mouseover', ()=>drawPixel(div));
     return div;
 }
 
 function drawPixel(event){
-    if(isHoldingMouse){
+    if(isMouseDown){
         event.style.background = "black";
     }
 }
 
 window.addEventListener('mousedown', () => {
-    isHoldingMouse = true;
+    isMouseDown = true;
     console.log(isHoldingMouse);
 })
 window.addEventListener('mouseup', () => {
-    isHoldingMouse = false;
+    isMouseDown = false;
     console.log(isHoldingMouse);
 })
+
+window.addEventListener('dragstart', (e) => {
+    e.preventDefault()
+  })
+  div.addEventListener('drop', (e) => {
+    e.preventDefault()
+  })
 
