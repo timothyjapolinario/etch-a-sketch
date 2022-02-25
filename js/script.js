@@ -37,8 +37,7 @@ function drawPixel(event){
 }
 
 window.addEventListener('mousedown', () => {
-    isMouseDown = true;
-    console.log(isHoldingMouse);
+    isMouseDown = true; 
 })
 window.addEventListener('mouseup', () => {
     isMouseDown = false;
@@ -48,7 +47,7 @@ window.addEventListener('mouseup', () => {
 window.addEventListener('dragstart', (e) => {
     e.preventDefault()
   })
-  div.addEventListener('drop', (e) => {
+window.addEventListener('drop', (e) => {
     e.preventDefault()
   })
 
