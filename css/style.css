@@ -1,9 +1,10 @@
 .paper{
-    height: 500px;
+    height: 600px;
     width: 600px;
     border: 2px solid green;
     display: grid;
-    gap: 0;
+    padding:0;
+    
 }
 
 .pixel{
@@ -11,5 +12,6 @@
     width: 2px;
     height: 2px;
     padding: 0px;
+    margin:0px;
 }
 
