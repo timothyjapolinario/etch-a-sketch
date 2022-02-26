@@ -21,21 +21,32 @@ function setNewPaperGridSize(){
 }
 
 function createPixel(){
+    let isMouseOver = false;
     const div = document.createElement('div');
-    const a = document.createElement('a');
     div.setAttribute('draggable', 'false')
     div.setAttribute('class', 'pixel');
     div.setAttribute('style', `height:${pixelWidthHeight-padding}px; width:${pixelWidthHeight-padding}px;`)
-    a.addEventListener('click', ()=>{a.firstElementChild.style.background = "black"});
-    div.addEventListener('mouseover', ()=>drawPixel(div));
-    a.append(div);
-    return a;
+    div.addEventListener('mouseover', ()=>{
+        isMouseOver = true;
+    });
+    div.addEventListener('mouseleave', ()=>{
+        isMouseOver = false
+    });
+    div.addEventListener('mousedown',()=>{
+        if(isMouseOver){
+            drawPixel(div);
+        }
+    })
+    div.addEventListener('mouseover', ()=>{
+        if(isMouseDown){
+            drawPixel(div)
+        }
+    })
+    return div;
 }
 
 function drawPixel(event){
-    if(isMouseDown){
-        event.style.background = "black";
-    }
+    event.style.background = "black";
 }
 
 function onclick(){
