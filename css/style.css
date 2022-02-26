@@ -31,4 +31,10 @@
     padding-left: 40px;
     padding-right: 40px;
 }
+.setting-list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 
