@@ -22,12 +22,14 @@ function setNewPaperGridSize(){
 
 function createPixel(){
     const div = document.createElement('div');
+    const a = document.createElement('a');
     div.setAttribute('draggable', 'false')
     div.setAttribute('class', 'pixel');
     div.setAttribute('style', `height:${pixelWidthHeight-padding}px; width:${pixelWidthHeight-padding}px;`)
-
+    a.addEventListener('click', ()=>{a.firstElementChild.style.background = "black"});
     div.addEventListener('mouseover', ()=>drawPixel(div));
-    return div;
+    a.append(div);
+    return a;
 }
 
 function drawPixel(event){
@@ -36,12 +38,15 @@ function drawPixel(event){
     }
 }
 
+function onclick(){
+    console.log('clicked!')
+}
+
 window.addEventListener('mousedown', () => {
     isMouseDown = true; 
 })
 window.addEventListener('mouseup', () => {
     isMouseDown = false;
-    console.log(isHoldingMouse);
 })
 
 window.addEventListener('dragstart', (e) => {
