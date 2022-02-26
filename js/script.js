@@ -1,11 +1,14 @@
 const paper = document.querySelector('.paper');
 const resetPaperButton = document.querySelector('#clear-paper');
+const eraserButton = document.querySelector('#eraser')
 const paperWidth = paper.clientWidth;
 const paperHeight = paper.clientHeight;
 let pixelCount = 16;
 let pixelWidthHeight = paperWidth/pixelCount
 let padding = 2
 let isMouseDown = false;
+let penColor ="black";
+let eraserOn = false;
 
 
 setNewPaper(pixelCount);
@@ -54,7 +57,7 @@ function createPixel(){
     return div;
 }
 
-function drawPixel(event, color = "black"){
+function drawPixel(event, color = penColor){
     event.style.background = color;
 }
 
@@ -63,6 +66,21 @@ resetPaperButton.addEventListener('click', ()=>{
     removeAllGrid();
     setNewPaper(pixelCount);
 });
+
+eraserButton.addEventListener('click',()=>{
+    if(eraserOn){
+        eraserOn = false
+        eraserButton.style.background = "#ebe8e8";
+        eraserButton.style.color = "black";
+        penColor = "black"
+    }else{
+        eraserOn = true
+        eraserButton.style.background = "black";
+        eraserButton.style.color = "white";
+        penColor = "white";
+    }
+})
+
 
 window.addEventListener('mousedown', () => {
     isMouseDown = true; 
