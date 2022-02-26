@@ -1,4 +1,5 @@
 const paper = document.querySelector('.paper');
+const resetPaperButton = document.querySelector('#clear-paper');
 const paperWidth = paper.clientWidth;
 const paperHeight = paper.clientHeight;
 let pixelCount = 16;
@@ -7,11 +8,19 @@ let padding = 2
 let isMouseDown = false;
 
 
-setNewPaperGridSize();
+setNewPaper(pixelCount);
 
 
-function setNewPaperGridSize(){
+function removeAllGrid(){
+    while(paper.firstChild){
+        paper.removeChild(paper.firstChild)
+    }
+}
+
+function setNewPaper(newPixelCount){
     let i = 0;
+    pixelCount = newPixelCount;
+    pixelWidthHeight = paperWidth/pixelCount
     while(i < pixelCount * pixelCount){
         const pixel = createPixel()
         paper.append(pixel);
@@ -45,13 +54,15 @@ function createPixel(){
     return div;
 }
 
-function drawPixel(event){
-    event.style.background = "black";
+function drawPixel(event, color = "black"){
+    event.style.background = color;
 }
 
-function onclick(){
-    console.log('clicked!')
-}
+
+resetPaperButton.addEventListener('click', ()=>{
+    removeAllGrid();
+    setNewPaper(pixelCount);
+});
 
 window.addEventListener('mousedown', () => {
     isMouseDown = true; 
@@ -59,6 +70,8 @@ window.addEventListener('mousedown', () => {
 window.addEventListener('mouseup', () => {
     isMouseDown = false;
 })
+
+
 
 window.addEventListener('dragstart', (e) => {
     e.preventDefault()
