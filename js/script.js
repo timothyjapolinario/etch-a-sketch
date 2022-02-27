@@ -2,6 +2,8 @@ const paper = document.querySelector('.paper');
 const resetPaperButton = document.querySelector('#clear-paper');
 const eraserButton = document.querySelector('#eraser');
 const colorPicker = document.querySelector("#colorpicker");
+const pixelCountSlider = document.querySelector("#pixel-count-slider");
+const pixelCountTextBox = document.querySelector("#pixel-count-textbox");
 let colorPickerValue;
 const paperWidth = paper.clientWidth;
 const paperHeight = paper.clientHeight;
@@ -91,11 +93,24 @@ window.addEventListener('mouseup', () => {
 })
 
 colorPicker.addEventListener("change",(e)=>{
-    
     colorPickerValue = e.target.value;
     penColor = colorPickerValue;
-    console.log(e.target.value);
 })
+
+pixelCountSlider.addEventListener("change",(e)=>{
+    console.log(e.target.value);
+    removeAllGrid();
+    setNewPaper(e.target.value);
+    pixelCountTextBox.value = e.target.value;
+})
+
+pixelCountTextBox.addEventListener("change",(e)=>{
+    removeAllGrid();
+    setNewPaper(e.target.value);
+    pixelCountSlider.value = e.target.value;
+})
+
+
 
 window.addEventListener('dragstart', (e) => {
     e.preventDefault()
