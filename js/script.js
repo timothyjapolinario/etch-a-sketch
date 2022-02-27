@@ -1,13 +1,15 @@
 const paper = document.querySelector('.paper');
 const resetPaperButton = document.querySelector('#clear-paper');
-const eraserButton = document.querySelector('#eraser')
+const eraserButton = document.querySelector('#eraser');
+const colorPicker = document.querySelector("#colorpicker");
+let colorPickerValue;
 const paperWidth = paper.clientWidth;
 const paperHeight = paper.clientHeight;
 let pixelCount = 16;
 let pixelWidthHeight = paperWidth/pixelCount
 let padding = 2
 let isMouseDown = false;
-let penColor ="black";
+let penColor = colorPicker.getAttribute("value");
 let eraserOn = false;
 
 
@@ -54,7 +56,7 @@ function createPixel(){
             drawPixel(div)
         }
     })
-    return div;
+    return div; 
 }
 
 function drawPixel(event, color = penColor){
@@ -72,7 +74,7 @@ eraserButton.addEventListener('click',()=>{
         eraserOn = false
         eraserButton.style.background = "#ebe8e8";
         eraserButton.style.color = "black";
-        penColor = "black"
+        penColor = colorPickerValue;
     }else{
         eraserOn = true
         eraserButton.style.background = "black";
@@ -81,7 +83,6 @@ eraserButton.addEventListener('click',()=>{
     }
 })
 
-
 window.addEventListener('mousedown', () => {
     isMouseDown = true; 
 })
@@ -89,7 +90,12 @@ window.addEventListener('mouseup', () => {
     isMouseDown = false;
 })
 
-
+colorPicker.addEventListener("change",(e)=>{
+    
+    colorPickerValue = e.target.value;
+    penColor = colorPickerValue;
+    console.log(e.target.value);
+})
 
 window.addEventListener('dragstart', (e) => {
     e.preventDefault()
