@@ -74,13 +74,13 @@ resetPaperButton.addEventListener('click', ()=>{
 eraserButton.addEventListener('click',()=>{
     if(eraserOn){
         eraserOn = false
-        eraserButton.style.background = "#ebe8e8";
+        eraserButton.style.background = "#98c1d9";
         eraserButton.style.color = "black";
         penColor = colorPickerValue;
     }else{
         eraserOn = true
-        eraserButton.style.background = "black";
-        eraserButton.style.color = "white";
+        eraserButton.style.background = "#3d5a80";
+        eraserButton.style.color = "#98c1d9";
         penColor = "white";
     }
 })
@@ -93,6 +93,7 @@ window.addEventListener('mouseup', () => {
 })
 
 colorPicker.addEventListener("change",(e)=>{
+
     colorPickerValue = e.target.value;
     penColor = colorPickerValue;
 })

@@ -1,8 +1,45 @@
-.container{
+.sketching-area{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap:50px;
     align-items: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #293241;
+    margin:0px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    background-color: #3d5a80;
+    padding: 100px;
+    align-items: center;
+    border: 15px solid #1f0701;
+}
+
+.title{
+    margin:0px;
+    display: flex;
+    max-width: fit-content;
+    padding: 20px;
+    color:#ee6c4d;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #293241;
+    font-size: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .paper{
@@ -25,11 +62,12 @@
 }
 .setting-option{
     border: 1px solid black;
-    background-color: #ebe8e8;
+    background-color: #98c1d9;
     padding-top:15px;
     padding-bottom:15px;
     padding-left: 40px;
     padding-right: 40px;
+    border-radius: 10px;
 }
 .setting-list{
     display: flex;
@@ -40,11 +78,13 @@
 #colorpicker{
     width: 150px;
     height: 50px;
+    border-radius: 10px;
 }
 
 #pixel-count-textbox{
     font-size: 20px;
     text-align: center;
+    border-radius: 10px;
 }
 
 
