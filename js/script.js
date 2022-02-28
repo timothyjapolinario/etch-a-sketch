@@ -4,7 +4,7 @@ const eraserButton = document.querySelector('#eraser');
 const colorPicker = document.querySelector("#colorpicker");
 const pixelCountSlider = document.querySelector("#pixel-count-slider");
 const pixelCountTextBox = document.querySelector("#pixel-count-textbox");
-let colorPickerValue;
+let colorPickerValue = "black";
 const paperWidth = paper.clientWidth;
 const paperHeight = paper.clientHeight;
 let pixelCount = 16;
@@ -19,6 +19,7 @@ setNewPaper(pixelCount);
 
 
 function removeAllGrid(){
+    penColor = colorPickerValue
     while(paper.firstChild){
         paper.removeChild(paper.firstChild)
     }
@@ -51,6 +52,7 @@ function createPixel(){
     div.addEventListener('mousedown',()=>{
         if(isMouseOver){
             drawPixel(div);
+            console.log(penColor);
         }
     })
     div.addEventListener('mouseover', ()=>{
@@ -81,7 +83,7 @@ eraserButton.addEventListener('click',()=>{
         eraserOn = true
         eraserButton.style.background = "#3d5a80";
         eraserButton.style.color = "#98c1d9";
-        penColor = "white";
+        penColor = "#ebe8e8";
     }
 })
 
