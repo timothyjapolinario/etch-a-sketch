@@ -41,7 +41,7 @@ function createPixel(){
     const div = document.createElement('div');
     div.setAttribute('draggable', 'false')
     div.setAttribute('class', 'pixel');
-    div.setAttribute('style', `height:${pixelWidthHeight-padding}px; width:${pixelWidthHeight-padding}px;`)
+    div.setAttribute('style', `height:${pixelWidthHeight-padding}px; width:${pixelWidthHeight-padding}px; background-color:#ebe8e8;`)
     div.addEventListener('mouseover', ()=>{
         isMouseOver = true;
     });
